@@ -1,11 +1,14 @@
 package com.ll.base;
 
+import lombok.Getter;
+
 import java.util.Scanner;
 
 public class Command {
 
-    int id = 0;
-
+    // 수정과 삭제에서 쓰이는 id
+    @Getter
+    private int id = 0;
 
     public int cmd(String cmd){
         if (cmd.equals("종료")) return 1;
@@ -26,7 +29,9 @@ public class Command {
         else return 0;
     }
 
-    public int idSeparator(String cmd){
+    private int idSeparator(String cmd){
+        // '='기준 앞 단어 3개가 '?id'와 일치하는 지 알아보기
+        // 일치하면 =뒤에는 숫자가 오는지 확인하고 숫자면 id에 값 저장하기
         String preWords;
 
         int index = cmd.indexOf("=");

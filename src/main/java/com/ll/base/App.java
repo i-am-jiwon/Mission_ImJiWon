@@ -5,11 +5,12 @@ import com.ll.domain.SentenceController;
 import java.util.Scanner;
 
 public class App {
-    Scanner sc = new Scanner(System.in);
-    SentenceController stor = new SentenceController(sc);
+    private Scanner sc = new Scanner(System.in);
+    //crud서비스 컨트롤러
+    SentenceController sentenceController = new SentenceController(sc);
+    //명령 입력 구분기
     Command command = new Command();
 
-    int id;
 
     public void run() {
         System.out.println("=== 명언앱 ===");
@@ -24,19 +25,19 @@ public class App {
                     return;
                 //등록
                 case 2 :
-                    stor.register();
+                    sentenceController.register();
                     break;
                 //목록
                 case 3:
-                    stor.list();
+                    sentenceController.list();
                     break;
                 // 삭제
                 case 4 :
-                    stor.delete(command.id);
+                    sentenceController.delete(command.getId());
                     break;
                 // 수정
                 case 5 :
-                    stor.modify(command.id);
+                    sentenceController.modify(command.getId());
                     break;
                 // 잘못된 명령시 오류 메시지 출력
                 default:

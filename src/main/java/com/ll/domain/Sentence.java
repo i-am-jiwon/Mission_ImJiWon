@@ -1,11 +1,13 @@
 package com.ll.domain;
 
-public class Sentence {
-    String author;
-    String sentence;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
-    Sentence(String author, String sentence){
-        this.author = author;
-        this.sentence = sentence;
-    }
+@AllArgsConstructor
+@Getter @Setter
+public class Sentence {
+    private String author;
+    private String sentence;
+
 }
