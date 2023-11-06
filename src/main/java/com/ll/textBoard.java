@@ -19,6 +19,9 @@ public class textBoard {
                 case 2 :
                     register();
                     break;
+                case 3:
+                    list();
+                    break;
             }
 
         }
@@ -27,7 +30,8 @@ public class textBoard {
     public int cmd(){
         String cmd = sc.nextLine();
         if (cmd.equals("종료")) return 1;
-        if (cmd.equals("등록")) return 2;
+        else if (cmd.equals("등록")) return 2;
+        else if (cmd.equals("목록")) return 3;
         else return 0;
     }
 
@@ -38,6 +42,10 @@ public class textBoard {
         String author = sc.nextLine();
         regCount++;
         System.out.printf("%d번 명언이 등록되었습니다.\n", regCount);
+    }
+
+    public void list(){
+        System.out.println("print list");
     }
 
 }
