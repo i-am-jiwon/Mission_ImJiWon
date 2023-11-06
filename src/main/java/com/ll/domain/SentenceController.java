@@ -1,5 +1,7 @@
 package com.ll.domain;
 
+import com.ll.base.Command;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -48,6 +50,7 @@ public class SentenceController {
     }
 
     public void delete(int id) {
+
         if (authorSentenceMap.containsKey(id)) {
             authorSentenceMap.remove(id);
             System.out.println(id+"번 명언이 삭제되었습니다.");
