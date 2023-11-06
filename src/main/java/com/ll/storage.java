@@ -35,6 +35,6 @@ public class storage {
             authorSentenceMap.remove(id);
             System.out.println(id+"번 명언이 삭제되었습니다.");
         }
-        else System.out.println("x");
+        else System.out.println(id +"번 명언은 존재하지 않습니다.");
     }
 }
