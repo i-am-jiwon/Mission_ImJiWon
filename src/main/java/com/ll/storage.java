@@ -2,6 +2,7 @@ package com.ll;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class storage {
     String author;
@@ -34,6 +35,21 @@ public class storage {
         if (authorSentenceMap.containsKey(id)) {
             authorSentenceMap.remove(id);
             System.out.println(id+"번 명언이 삭제되었습니다.");
+        }
+        else System.out.println(id +"번 명언은 존재하지 않습니다.");
+    }
+
+    public void modify(int id) {
+        if (authorSentenceMap.containsKey(id)) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("명언(기존) : "+ authorSentenceMap.get(id).sentence);
+            System.out.print("명언 : ");
+            String newSentence = sc.nextLine();
+            System.out.println("작가(기존) : "+ authorSentenceMap.get(id).author);
+            System.out.print("작가 : ");
+            String newAuthor = sc.nextLine();
+
+
         }
         else System.out.println(id +"번 명언은 존재하지 않습니다.");
     }

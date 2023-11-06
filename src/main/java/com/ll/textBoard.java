@@ -28,6 +28,9 @@ public class textBoard {
                 case 4 :
                     delete();
                     break;
+                case 5 :
+                    modify();
+                    break;
             }
 
         }
@@ -42,6 +45,11 @@ public class textBoard {
             int index = cmd.indexOf("=");
             id = Integer.parseInt(cmd.substring(index+1));
             return 4;
+        }
+        else if (cmd.startsWith("수정")){
+            int index = cmd.indexOf("=");
+            id = Integer.parseInt(cmd.substring(index+1));
+            return 5;
         }
         else return 0;
     }
@@ -64,6 +72,10 @@ public class textBoard {
 
     public void delete(){
         stor.delete(id);
+    }
+
+    public void modify(){
+        stor.modify(id);
     }
 
 }
