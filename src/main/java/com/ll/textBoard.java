@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class textBoard {
     Scanner sc = new Scanner(System.in);
+    int regCount = 0;
     public void run() {
 
         System.out.println("=== 명언앱 ===");
@@ -35,8 +36,8 @@ public class textBoard {
         String sentence = sc.nextLine();
         System.out.print("작가 : ");
         String author = sc.nextLine();
-
-        System.out.printf("%d번 명언이 등록되었습니다.\n", 1);
+        regCount++;
+        System.out.printf("%d번 명언이 등록되었습니다.\n", regCount);
     }
 
 }
