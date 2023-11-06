@@ -49,7 +49,8 @@ public class storage {
             System.out.print("작가 : ");
             String newAuthor = sc.nextLine();
 
-
+            authorSentenceMap.get(id).sentence = newSentence;
+            authorSentenceMap.get(id).author = newAuthor;
         }
         else System.out.println(id +"번 명언은 존재하지 않습니다.");
     }
