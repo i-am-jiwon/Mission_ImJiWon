@@ -37,11 +37,11 @@ public class SentenceController {
     public void list() {
         System.out.println("번호 / 작가 / 명언");
         System.out.println("----------------------");
+        //비어있으면 리턴
+        if (authorSentenceMap.isEmpty()) return;
         for (int i = listNum; i > 0; i--) {
             // Map에서 있는 것 역순으로 가져오기
-            if (authorSentenceMap.isEmpty()) {
-                return;
-            } else if (authorSentenceMap.containsKey(i)) {
+            if (authorSentenceMap.containsKey(i)) {
                 System.out.println(i + " / " + authorSentenceMap.get(i).getAuthor() + " / " + authorSentenceMap.get(i).getSentence());
             }
         }
@@ -68,5 +68,16 @@ public class SentenceController {
             authorSentenceMap.get(id).setAuthor(newAuthor);
         }
         else System.out.println(id +"번 명언은 존재하지 않습니다.");
+    }
+
+    public void toFile(){
+        for (int i = listNum; i > 0; i--) {
+            // Map에서 있는 것 역순으로 가져오기
+            if (authorSentenceMap.isEmpty()) {
+                return;
+            } else if (authorSentenceMap.containsKey(i)) {
+                System.out.println(i + " / " + authorSentenceMap.get(i).getAuthor() + " / " + authorSentenceMap.get(i).getSentence());
+            }
+        }
     }
 }

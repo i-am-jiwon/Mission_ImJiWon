@@ -22,6 +22,7 @@ public class App {
             switch (command.cmd(cmd)){
                 //종료
                 case 1 :
+                    sentenceController.toFile();
                     return;
                 //등록
                 case 2 :

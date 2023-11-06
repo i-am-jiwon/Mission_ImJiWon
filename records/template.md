@@ -26,7 +26,10 @@
     4. 숫자라면 id로 사용 <br/>
   | [문자열 공부한 내 블로그](https://velog.io/@i-am-jiwon/%EC%9E%90%EB%B0%94-%EB%AC%B8%EC%9E%90%EC%97%B4-%EB%8B%A4%EB%A3%A8%EA%B8%B0startsWith-split)
 - [x] 7.8단계 까지 수정과 삭제처럼 비슷한 로직이 있는 부분은 합쳐서 빼주는 리펙토링도 할 수 있는 한 해보았다.
-- [ ] 8.private 작업 / 주석작업 / getter setter 작업(롬복까지)
+- [x] 8.private 작업 / 주석작업 / getter setter 작업(롬복까지)
+- [ ] 9.파일을 출력하기
+  1. sentenceController에 파일 출력 함수 만들기
+  2. 파일 출력 로직 만들기
 
 ---
 
