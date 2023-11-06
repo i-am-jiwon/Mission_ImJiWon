@@ -12,6 +12,14 @@ public class textBoard {
         Scanner sc = new Scanner(System.in);
         String cmd = sc.nextLine();
 
+        System.out.print("명언 : ");
+        String sentence = sc.nextLine();
+        System.out.print("작가 : ");
+        String author = sc.nextLine();
+
+        System.out.print("명령) ");
+        String cmd2 = sc.nextLine();
+
 
     }
 }
