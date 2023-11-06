@@ -1,10 +1,10 @@
-package com.ll;
+package com.ll.domain;
 
-public class saveForm {
+public class Sentence {
     String author;
     String sentence;
 
-    saveForm(String author, String sentence){
+    Sentence(String author, String sentence){
         this.author = author;
         this.sentence = sentence;
     }

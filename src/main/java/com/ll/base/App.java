@@ -1,38 +1,40 @@
-package com.ll;
+package com.ll.base;
+
+import com.ll.domain.SentenceController;
 
 import java.util.Scanner;
 
-public class textBoard {
+public class App {
     Scanner sc = new Scanner(System.in);
-    storage stor = new storage();
+    SentenceController stor = new SentenceController(sc);
 
     int id;
 
     public void run() {
-
         System.out.println("=== 명언앱 ===");
-
         while (true) {
             System.out.print("명령) ");
-
             switch (cmd()){
-                //등록
+                //종료
                 case 1 :
                     return;
+                //등록
                 case 2 :
-                    register();
+                    stor.register();
                     break;
+                //목록
                 case 3:
-                    list();
+                    stor.list();
                     break;
+                // 삭제
                 case 4 :
-                    delete();
+                    stor.delete(id);
                     break;
+                // 수정
                 case 5 :
-                    modify();
+                    stor.modify(id);
                     break;
             }
-
         }
     }
 
@@ -54,28 +56,6 @@ public class textBoard {
         else return 0;
     }
 
-    public void register(){
-        System.out.print("명언 : ");
-        String sentence = sc.nextLine();
-        System.out.print("작가 : ");
-        String author = sc.nextLine();
 
-        stor.save(author, sentence);
-        System.out.printf("%d번 명언이 등록되었습니다.\n", stor.count);
-    }
-
-    public void list(){
-        System.out.println("번호 / 작가 / 명언");
-        System.out.println("----------------------");
-        stor.getList();
-    }
-
-    public void delete(){
-        stor.delete(id);
-    }
-
-    public void modify(){
-        stor.modify(id);
-    }
 
 }

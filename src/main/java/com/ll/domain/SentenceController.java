@@ -1,25 +1,41 @@
-package com.ll;
+package com.ll.domain;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class storage {
-    String author;
-    String sentence;
+public class SentenceController {
 
-    int count = 0;
+    private int listNum;
+    private String author;
+    private String sentence;
+    private Scanner sc;
+    Map<Integer, Sentence> authorSentenceMap;
 
-    Map<Integer, saveForm> authorSentenceMap = new HashMap<Integer, saveForm>();
-
-    public void save(String author, String sentence) {
-        count++;
-        saveForm sa = new saveForm(author, sentence);
-        authorSentenceMap.put(count, sa);
+    public SentenceController(Scanner sc){
+        this.sc = sc;
+        listNum = 0;
+        authorSentenceMap = new HashMap<Integer, Sentence>();
     }
 
-    public void getList() {
-        for (int i = count; i > 0; i--) {
+
+    public void register() {
+        System.out.print("명언 : ");
+        String sentence = sc.nextLine();
+        System.out.print("작가 : ");
+        String author = sc.nextLine();
+
+        listNum++;
+        Sentence sa = new Sentence(author, sentence);
+        authorSentenceMap.put(listNum, sa);
+
+        System.out.printf("%d번 명언이 등록되었습니다.\n", listNum);
+    }
+
+    public void list() {
+        System.out.println("번호 / 작가 / 명언");
+        System.out.println("----------------------");
+        for (int i = listNum; i > 0; i--) {
 
             if (authorSentenceMap.isEmpty()) {
                 // test
