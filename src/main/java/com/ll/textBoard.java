@@ -6,6 +6,8 @@ public class textBoard {
     Scanner sc = new Scanner(System.in);
     storage stor = new storage();
 
+    int id;
+
     public void run() {
 
         System.out.println("=== 명언앱 ===");
@@ -36,7 +38,11 @@ public class textBoard {
         if (cmd.equals("종료")) return 1;
         else if (cmd.equals("등록")) return 2;
         else if (cmd.equals("목록")) return 3;
-        else if (cmd.startsWith("삭제"))return 4;
+        else if (cmd.startsWith("삭제")){
+            int index = cmd.indexOf("=");
+            id = Integer.parseInt(cmd.substring(index+1));
+            return 4;
+        }
         else return 0;
     }
 
@@ -57,7 +63,7 @@ public class textBoard {
     }
 
     public void delete(){
-        stor.delete(1);
+        stor.delete(id);
     }
 
 }

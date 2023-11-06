@@ -23,6 +23,7 @@ public class storage {
             if (authorSentenceMap.isEmpty()) {
                 // test
                 System.out.println("목록 없다.");
+                return;
             } else if (authorSentenceMap.containsKey(i)) {
                 System.out.println(i + " / " + authorSentenceMap.get(i).author + " / " + authorSentenceMap.get(i).sentence);
             }
@@ -32,6 +33,7 @@ public class storage {
     public void delete(int id) {
         if (authorSentenceMap.containsKey(id)) {
             authorSentenceMap.remove(id);
+            System.out.println(id+"번 명언이 삭제되었습니다.");
         }
         else System.out.println("x");
     }
