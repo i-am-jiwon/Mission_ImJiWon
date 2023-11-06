@@ -23,6 +23,9 @@ public class textBoard {
                 case 3:
                     list();
                     break;
+                case 4 :
+                    delete();
+                    break;
             }
 
         }
@@ -33,6 +36,7 @@ public class textBoard {
         if (cmd.equals("종료")) return 1;
         else if (cmd.equals("등록")) return 2;
         else if (cmd.equals("목록")) return 3;
+        else if (cmd.startsWith("삭제"))return 4;
         else return 0;
     }
 
@@ -50,6 +54,10 @@ public class textBoard {
         System.out.println("번호 / 작가 / 명언");
         System.out.println("----------------------");
         stor.getList();
+    }
+
+    public void delete(){
+        stor.delete(1);
     }
 
 }
