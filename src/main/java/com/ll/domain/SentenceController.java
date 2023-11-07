@@ -74,16 +74,19 @@ public class SentenceController {
 
         File file = new File("file.txt");
         FileWriter writer;
+        String save = "";
         for (int i = listNum; i > 0; i--) {
             if (authorSentenceMap.containsKey(i)) {
-                try{
-                    writer = new FileWriter(file);
-                    writer.write("String to .txt file");
-                    writer.flush();
-                }catch (IOException e){
-                    e.printStackTrace();
-                }
+                save += i + " / " +authorSentenceMap.get(i).getAuthor()+" / " + authorSentenceMap.get(i).getSentence() + "\n";
             }
         }
+        try{
+            writer = new FileWriter(file);
+            writer.write(save);
+            writer.flush();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
     }
 }

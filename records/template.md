@@ -15,7 +15,7 @@
 
     | [map공부한 내 블로그](https://velog.io/@i-am-jiwon/%EC%9E%90%EB%B0%94-ArrayList-vs-Map)  
     |  [참고) 맵 공식문서 정리 블로그](https://upsw-p.tistory.com/24)
-  <br/><br/>
+  <br/>
 - [x] 5-2.등록할 때마다 1씩 증가하고 유일한 값이 sql에서 id와 비슷하다고 
 생각해 등록할 때마다 증가하는 값을 내부에 저장하고 그 값을 키값으로 정했다.
 그리고 벨류에 작가와 명언을 넣기 위해 명언과 작가를 받을 수 있는 클래스를 만들어 주었다.<br/>
@@ -29,8 +29,8 @@
 - [x] 8.private 작업 / 주석작업 / getter setter 작업(롬복까지)
 - [ ] 9.파일을 출력하기
   1. sentenceController에 파일 출력 함수 만들기
-  2. 파일 출력 로직 만들기
-
+  2. 파일 출력 로직 만들기 > Map에 데이터가 있으면 FileWriter를 이용해서 "file.txt"를 만들고 문자열 작성
+     <br/>| [파일 입출력 공부한 내 블로그](https://velog.io/@i-am-jiwon/%EC%9E%90%EB%B0%94-%ED%85%8D%EC%8A%A4%ED%8A%B8-%ED%8C%8C%EC%9D%BC-%EC%9E%85%EC%B6%9C%EB%A0%A5)
 ---
 
 **[특이사항]**
