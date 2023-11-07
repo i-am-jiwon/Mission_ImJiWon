@@ -110,6 +110,19 @@ public class SentenceController {
     }
 
     public void build(){
-
+        File file = new File("data.json");
+        FileWriter writer;
+        String json = "[\n";
+        if (!authorSentenceMap.isEmpty()) {
+            for (int i = 1; i <= listNum; i++) {
+                if (authorSentenceMap.containsKey(i)) {
+                   json +="\t{\n";
+                   json +="\t}";
+                   json += ",\n";
+                }
+            }
+        }
+        json += "]";
+        System.out.println(json);
     }
 }
