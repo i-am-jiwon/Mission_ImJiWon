@@ -108,4 +108,8 @@ public class SentenceController {
             e.getStackTrace();
         }
     }
+
+    public void build(){
+
+    }
 }

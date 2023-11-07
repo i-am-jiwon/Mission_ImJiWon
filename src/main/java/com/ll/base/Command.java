@@ -26,6 +26,7 @@ public class Command {
             id = tempId;
             return 5;
         }
+        else if (cmd.equals("빌드")) return 6;
         else return 0;
     }
 
