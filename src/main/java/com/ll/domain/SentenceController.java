@@ -1,8 +1,6 @@
 package com.ll.domain;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -17,7 +15,7 @@ public class SentenceController {
 
     public SentenceController(Scanner sc) {
         this.sc = sc;
-        listNum = 0;
+        listNum = 1;
         authorSentenceMap = new HashMap<Integer, Sentence>();
     }
 
@@ -29,11 +27,17 @@ public class SentenceController {
         String sentence = sc.nextLine();
         System.out.print("작가 : ");
         String author = sc.nextLine();
-        listNum++;
+        save(author, sentence);
+        System.out.printf("%d번 명언이 등록되었습니다.\n", listNum - 1);
+
+    }
+
+    private void save(String author, String sentence){
         Sentence sa = new Sentence(author, sentence);
         authorSentenceMap.put(listNum, sa);
-        System.out.printf("%d번 명언이 등록되었습니다.\n", listNum);
+        listNum++;
     }
+
 
     public void list() {
         System.out.println("번호 / 작가 / 명언");
@@ -69,24 +73,39 @@ public class SentenceController {
         } else System.out.println(id + "번 명언은 존재하지 않습니다.");
     }
 
-    public void toFile() {
-        if (authorSentenceMap.isEmpty()) return;
-
+    public void fileWrite() {
         File file = new File("file.txt");
         FileWriter writer;
         String save = "";
-        for (int i = listNum; i > 0; i--) {
-            if (authorSentenceMap.containsKey(i)) {
-                save += i + " / " +authorSentenceMap.get(i).getAuthor()+" / " + authorSentenceMap.get(i).getSentence() + "\n";
+        if (!authorSentenceMap.isEmpty()) {
+            for (int i = 1; i <= listNum; i++) {
+                if (authorSentenceMap.containsKey(i)) {
+                    save += i + " / " + authorSentenceMap.get(i).getAuthor() + " / " + authorSentenceMap.get(i).getSentence() + "\n";
+                }
             }
         }
-        try{
+        try {
             writer = new FileWriter(file);
             writer.write(save);
             writer.flush();
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
+    }
+
+    public void fileRead() {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("file.txt"));
+            String fileReadLine = br.readLine();
+            while(fileReadLine != null){
+                String[] bitsFileReadLine = fileReadLine.split(" / ");
+                listNum = Integer.parseInt(bitsFileReadLine[0]);
+                save(bitsFileReadLine[1], bitsFileReadLine[2]);
+                fileReadLine = br.readLine();
+            }
+        } catch (IOException e) {
+            e.getStackTrace();
+        }
     }
 }

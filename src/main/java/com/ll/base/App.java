@@ -13,6 +13,7 @@ public class App {
 
 
     public void run() {
+        sentenceController.fileRead();
         System.out.println("=== 명언앱 ===");
 
         while (true) {
@@ -22,7 +23,7 @@ public class App {
             switch (command.cmd(cmd)){
                 //종료
                 case 1 :
-                    sentenceController.toFile();
+                    sentenceController.fileWrite();
                     return;
                 //등록
                 case 2 :
