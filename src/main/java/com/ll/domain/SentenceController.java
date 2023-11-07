@@ -32,7 +32,7 @@ public class SentenceController {
 
     }
 
-    private void save(String author, String sentence){
+    private void save(String author, String sentence) {
         Sentence sa = new Sentence(author, sentence);
         authorSentenceMap.put(listNum, sa);
         listNum++;
@@ -98,7 +98,7 @@ public class SentenceController {
         try {
             BufferedReader br = new BufferedReader(new FileReader("file.txt"));
             String fileReadLine = br.readLine();
-            while(fileReadLine != null){
+            while (fileReadLine != null) {
                 String[] bitsFileReadLine = fileReadLine.split(" / ");
                 listNum = Integer.parseInt(bitsFileReadLine[0]);
                 save(bitsFileReadLine[1], bitsFileReadLine[2]);
@@ -109,20 +109,37 @@ public class SentenceController {
         }
     }
 
-    public void build(){
+    public void build() {
         File file = new File("data.json");
         FileWriter writer;
         String json = "[\n";
         if (!authorSentenceMap.isEmpty()) {
             for (int i = 1; i <= listNum; i++) {
                 if (authorSentenceMap.containsKey(i)) {
-                   json +="\t{\n";
-                   json +="\t}";
-                   json += ",\n";
+                    json += "\t{\n";
+                    json += "\t\t\"id\": " + i + ",\n";
+                    json += "\t\t\"content\": \"" + authorSentenceMap.get(i).getSentence() + "\",\n";
+                    json += "\t\t\"author\": \"" + authorSentenceMap.get(i).getAuthor() + "\"\n";
+                    json += "\t}";
+                    if (i == listNum-1) {
+                        json += "\n";
+
+                    } else {
+                        json += ",\n";
+                    }
                 }
             }
         }
         json += "]";
-        System.out.println(json);
+
+        try {
+            writer = new FileWriter(file);
+            writer.write(json);
+            writer.flush();
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("data.json 파일의 내용이 갱신되었습니다.");
     }
 }
