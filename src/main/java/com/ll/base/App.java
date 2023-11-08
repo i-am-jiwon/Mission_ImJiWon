@@ -43,6 +43,7 @@ public class App {
                     break;
                 case 6 :
                     sentenceController.build();
+                    break;
                 // 잘못된 명령시 오류 메시지 출력
                 default:
                     System.out.println("*명령어 오류* 다시 입력해 주세요.");
